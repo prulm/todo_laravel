@@ -34,9 +34,9 @@ class TaskController extends Controller {
         ]);
 
         if ($task) {
-            return "data created successfully";
+            return redirect(route('task.index'))->with('message', 'Task created successfully!');
         } else {
-            return "Error Creating Data";
+            return redirect("/")->with('message', 'Error creating data.');
         }
     }
 
@@ -71,7 +71,8 @@ class TaskController extends Controller {
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id) {
-        //
+    public function destroy(Task $task) {
+        $task->delete();
+        return redirect(route('task.index'))->with('message', 'Task deleted successfully!');
     }
 }

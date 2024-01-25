@@ -12,7 +12,14 @@
         <h1>
             My Tasks
         </h1>
-
+        <div>
+            @if (session()->has('message'))
+                <div>{{session('message')}}</div>
+            @endif
+        </div>
+        @if (count($tasks) == 0)
+            <p>You have no tasks</p>
+        @else
         <table border="1">
             <tr>
                 <th>Task Name</th>
@@ -26,7 +33,7 @@
                 <td> {{ $task->task_name }} </td>
                 <td> {{ $task->task_desc }} </td>
                 <td> <a href="/edit_task/{{$task->id}}"> Edit </a> </td>
-                <td> <a href="/delete_task/{{$task->id}}"> Delete </a> </td>
+                <td> <a href="{{route('task.destroy', ['task' => $task])}}}"> Delete </a> </td>
             </tr>
 
 
@@ -34,6 +41,8 @@
 
 
         </table>
+            
+        @endif
         <a href="/"><button>Create new</button></a>
     </body>
 

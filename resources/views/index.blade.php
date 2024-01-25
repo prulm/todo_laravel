@@ -12,7 +12,11 @@
         <h3>
             ToDo List - Create
         </h3>
-
+        <div>
+            @if (session()->has('message'))
+                <div>{{session('message')}}</div>
+            @endif
+        </div>
         <a href="/tasks"> Read My Tasks</a>
 
 
