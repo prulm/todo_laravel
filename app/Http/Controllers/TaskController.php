@@ -58,8 +58,14 @@ class TaskController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id) {
-        //
+    public function update(Request $request, Task $task) {
+        $data = $request->validate([
+            'task_name' => 'required',
+            'task_desc' => 'required',
+            ]);
+        $task->update($data);
+
+        return redirect(route('task.index'))->with('message', 'Task updated successfully!');
     }
 
     /**

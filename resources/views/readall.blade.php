@@ -13,7 +13,7 @@
             My Tasks
         </h1>
 
-        <table>
+        <table border="1">
             <tr>
                 <th>Task Name</th>
                 <th>Task Description</th>
@@ -34,7 +34,7 @@
 
 
         </table>
-
+        <a href="/"><button>Create new</button></a>
     </body>
 
 </html>

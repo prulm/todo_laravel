@@ -13,12 +13,12 @@
             ToDo List - Edit
         </h3>
 
-        <form method="" action="/update_task">
+        <form method="POST" action="{{route('task.update', ['task' => $task])}}">
             @csrf
             <input type="hidden" name="_method" value="PUT">
             Task Name: <input type="text" name="task_name" value="{{$task->task_name}}"><br>
             Task Desc: <input type="text" name="task_desc" value="{{$task->task_desc}}"> <br>
-            <input type="submit">
+            <button value="submit">Update</button>
         </form>
 
     </body>

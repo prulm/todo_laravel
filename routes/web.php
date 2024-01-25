@@ -19,9 +19,10 @@ Route::get('/', function () {
 
 Route::post('/save_tasks', [TaskController::class, 'store']);
 
-Route::get('/tasks', [TaskController::class, 'index']);
+Route::get('/tasks', [TaskController::class, 'index'])->name('task.index');
 
-Route::get('/edit_task/{id}', [TaskController::class, 'edit']);
+Route::get('/edit_task/{task}', [TaskController::class, 'edit']);
 
+Route::put('/edit_task/{task}', [TaskController::class, 'update'])->name('task.update');
 
 Route::get('/delete_task/{id}', [TaskController::class, 'destroy']);
